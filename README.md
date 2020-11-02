@@ -10,6 +10,6 @@
 
 `git clone https://github.com/youzhitang/dom-demo-2.git`
 
-`cd dom-2`
+`cd dom-demo-2`
 
 `parcel src/index.html`
