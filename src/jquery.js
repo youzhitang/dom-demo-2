@@ -7,6 +7,8 @@ window.jQuery = function (selectorOrArray) {
         elements = selectorOrArray
     }
     return {
+        oldApi: selectorOrArray.oldApi,
+        //return 里的oldApi获取数组的api
         addClass: function (className) {
             for (let i = 0; i < elements.length; i++) {
                 elements[i].classList.add(className)
@@ -19,10 +21,13 @@ window.jQuery = function (selectorOrArray) {
                 const elements2 = Array.from(elements[i].querySelectorAll(selector))
                 array = array.concat(elements2)
             }
-            //const newApi = jQuery(array)
-            //靠jQuery构造出一个新API,如果每次用同一个API得到新的元素会污染之前的API
+            array.oldApi = this //this是旧的api
+
             return jQuery(array)
         },
+        end() {
+            return this.oldApi //这个this是当前的api (api2)，this.oldApi是api1
+        }
     }
 
 }
