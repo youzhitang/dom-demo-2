@@ -1,3 +1,7 @@
-const x = jQuery('.test')
+$('.test')
+    .addClass('red')
+    .addClass('blue')
+    .children()
+    .addClass('yellow')
 
-x.children().print()
+$('<div><span>1</span></div>').appendTo(document.body)
